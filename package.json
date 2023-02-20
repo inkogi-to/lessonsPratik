@@ -1,8 +1,8 @@
 {
-  "name": "react-homework-template",
+  "name": "lessonsPratik",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://goitacademy.github.io/react-homework-template/",
+  "homepage": "https://inkogi-to.github.io/lessonsPratik/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.3",
     "@testing-library/react": "^12.1.4",
@@ -36,5 +36,11 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "modern-normalize": "^1.1.0",
+    "prop-types": "^15.8.1",
+    "shortid": "^2.2.16",
+    "styled-components": "^5.3.6"
   }
 }
