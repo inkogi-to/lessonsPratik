@@ -1,0 +1,14 @@
+[
+    {
+        "label": "tab1",
+        "content": "lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incidid"
+    },
+    {
+        "label": "tab2",
+        "content": "lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incidid"
+    },
+    {
+        "label": "tab3",
+        "content": "lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incidid"
+    }
+]

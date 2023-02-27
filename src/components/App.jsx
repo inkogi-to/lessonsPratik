@@ -5,10 +5,16 @@ import shortid from 'shortid';
 // import ColorPicker from './ColorPicker/ColorPiker';
 // import Form from './TodoList/Form';
 import { GlobalStyle } from './GlobalStyle.styled';
-import TodoList from './TodoList/TodoList';
-import TodoEditor from './TodoEditor';
-import initialTodos from './todos.json';
-import Filter from './Filter';
+// import TodoList from './TodoList/TodoList';
+// import TodoEditor from './TodoEditor';
+// import initialTodos from './todos.json';
+// import Filter from './Filter';
+// import Modal from './Modal';
+// import Clock from './Clock'
+// import Tabs from './Tabs/Tabs.jsx'
+// import item from './itemss.json'
+
+
 
 // const ColorPickerOptions = [
 //   { label: 'red', color: '#F44336' },
@@ -21,8 +27,15 @@ import Filter from './Filter';
 
 class App extends Component {
   state = {
-    todos: initialTodos,
+    todos: [],
     filter: '',
+    showModal: false,
+  };
+
+  toggleModal = () => {
+    this.setState(({ showModal }) => ({
+      showModal: !showModal,
+    }));
   };
   addTodo = text => {
     const todo = {
@@ -60,8 +73,21 @@ class App extends Component {
     this.setState({ filter: e.currentTarget.value });
   };
 
+  componentDidMount() {
+    const todos = localStorage.getItem('todos');
+    const parsedTodos = JSON.parse(todos);
+    if (parsedTodos) {
+      this.setState({ todos: parsedTodos });
+    }
+  }
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.todos !== this.state.todos) {
+      localStorage.setItem('todos', JSON.stringify(this.state.todos));
+    }
+  }
+
   render() {
-    const { todos, filter } = this.state;
+    const { todos, filter, showModal } = this.state;
     const totalTodocount = todos.length;
     const completedTodoCount = todos.reduce(
       (total, todo) => (todo.completed ? total + 1 : total),
@@ -77,7 +103,7 @@ class App extends Component {
         {/* <Counter  /> */}
         {/* <Dropdown /> */}
         {/* <ColorPicker options={ColorPickerOptions} /> */}
-        <div>
+        {/* <div>
           <p>{totalTodocount}</p>
           <p>{completedTodoCount}</p>
         </div>
@@ -89,7 +115,26 @@ class App extends Component {
           todos={filteredTodos}
           onDeleteTodo={this.delteTodos}
           onToggleCompleted={this.toggleCompleted}
-        />
+        /> */}
+        {/* {showModal && <Clock/>} */}
+        <button type="button" onClick={this.toggleModal}>
+          Open Modal
+        </button>
+        {/* {showModal && (
+          <Modal onClose={this.toggleModal}>
+            <h1>Hello this first Modal</h1>
+            <p>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolor
+              distinctio modi et officia ad blanditiis magni qui eius. Placeat
+              ipsum sapiente labore perferendis accusamus veniam sunt vero
+              doloremque! Labore, animi?
+            </p>
+            <button type="button" onClick={this.toggleModal}>
+              Close Modal
+            </button>
+          </Modal>
+        )} */}
+        {/* <Tabs items={item}/> */}
         <GlobalStyle />
       </>
     );
