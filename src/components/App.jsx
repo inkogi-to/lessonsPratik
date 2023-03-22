@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import shortid from 'shortid';
-// import Counter from './Counter/Counter';
+// import Counter from './Counter/CounterHook';
 // import Dropdown from './Dropdown/Dropdown';
-// import ColorPicker from './ColorPicker/ColorPiker';
+// import ColorPicker from './ColorPicker/ColorPikerHook';
 // import Form from './TodoList/Form';
 import { GlobalStyle } from './GlobalStyle.styled';
 // import TodoList from './TodoList/TodoList';
@@ -10,7 +10,7 @@ import { GlobalStyle } from './GlobalStyle.styled';
 // import initialTodos from './todos.json';
 // import Filter from './Filter';
 // import Modal from './Modal';
-// import Clock from './Clock'
+import Clock from './Clock/ClockHook'
 // import Tabs from './Tabs/Tabs.jsx'
 // import item from './itemss.json'
 
@@ -116,11 +116,11 @@ class App extends Component {
           onDeleteTodo={this.delteTodos}
           onToggleCompleted={this.toggleCompleted}
         /> */}
-        {/* {showModal && <Clock/>} */}
-        <button type="button" onClick={this.toggleModal}>
+         <Clock/>
+        {/* <button type="button" onClick={this.toggleModal}>
           Open Modal
         </button>
-        {/* {showModal && (
+        {showModal && (
           <Modal onClose={this.toggleModal}>
             <h1>Hello this first Modal</h1>
             <p>

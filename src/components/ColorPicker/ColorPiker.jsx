@@ -19,7 +19,8 @@ class ColorPicker extends Component {
   setActiveIdx = index => {
     this.setState({ activeOptionIdx: index });
   };
-  makeOptionsClassName = index => {};
+  makeOptionsClassName = index => {
+  };
   render() {
     const { activeOptionIdx } = this.state;
     const { options } = this.props;

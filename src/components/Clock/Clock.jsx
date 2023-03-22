@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import { Component } from 'react';
 
-class Clock extends Component {
+class OldClock extends Component {
   state = {
     time: new Date().toLocaleTimeString(),
   };
@@ -13,12 +13,11 @@ class Clock extends Component {
     );
   }
   componentWillUnmount() {
+    this.stop();
+  }
+  stop = () => {
     clearInterval(this.intervaId);
-  }
-  render() {
-    return (
-        <div>{this.state.time}</div>
-    )
-  }
+  };
+  
 }
-export default Clock;
+export default OldClock;
